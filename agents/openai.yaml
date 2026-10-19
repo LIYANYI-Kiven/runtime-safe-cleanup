@@ -1,0 +1,3 @@
+interface:
+  display_name: "Runtime Safe Cleanup"
+  short_description: "Inventory a project and archive nonessential files"
