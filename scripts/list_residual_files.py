@@ -1,6 +1,6 @@
-"""List every remaining file and propose a cleanup category.
+"""列出清理目录后剩余的每个文件，并给出清理类别建议。
 
-Categories are review proposals, not permission to move or delete.
+类别只是待复核的建议，不是移动或删除许可。
 """
 from __future__ import annotations
 
@@ -60,7 +60,7 @@ def main() -> None:
         "file_count": len(files),
         "counts": counts,
         "files": files,
-        "boundary": "Proposals require review against entry points. unclassified files stay unless separately justified.",
+        "boundary": "建议必须对照启动入口复核。未分类文件除非另有依据，否则留在项目内。",
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")

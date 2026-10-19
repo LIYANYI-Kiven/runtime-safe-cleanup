@@ -1,6 +1,6 @@
-"""Copy reviewed items into an external archive and remove sources only after verification.
+"""把已复核的内容复制到项目外归档，核对一致后才删除源文件。
 
-The plan is explicit JSON:
+迁移计划使用如下 JSON：
 
 {
   "directories": ["old-eval"],
@@ -12,8 +12,7 @@ The plan is explicit JSON:
   }
 }
 
-Directories are placed under <destination>/directories. File categories use
-logs, caches, tests, and results. Relative paths are preserved.
+目录放到 <destination>/directories。文件按 logs、caches、tests、results 分类。原相对路径保持不变。
 """
 from __future__ import annotations
 

@@ -1,12 +1,12 @@
-# Borderline cleanup decisions
+# 边界判断
 
-Use these checks after the complete directory inventory exists. They do not replace the required project root, destination, or function notes.
+这些检查只在完整目录清单已经生成后使用。它们不能代替用户提供的项目目录、迁移目录和目录功能说明。
 
-- Trace the real startup command and one representative use of every retained capability before calling a directory unnecessary. A clean import can hide modules loaded only while answering.
-- Follow manifest and configuration paths, including paths outside the project. A local copy is not redundant until the selected external path is confirmed.
-- Do not follow or remove a symlink automatically. It may be the path the project uses, while its target may belong to another tree.
-- `__pycache__` and `.pyc` files are cache candidates. A `.venv`, installed runtime, or third-party checkout stays unless reinstallation is tested and the user accepts it.
-- A filename proposal from the residual-file scan is only a candidate. Keep the file when an entry point imports, launches, or serves it.
-- Generated reports and old result files can move. Curated benchmark definitions, source data, and cited documents stay when the project uses them.
-- Directories with the same name can have different contracts. Do not merge them as part of cleanup.
-- On FAT32, verify the copy but do not claim that the archive preserves permissions or encryption. Files of 4 GiB or larger need another destination.
+- 先追踪真实启动命令，并对每个准备保留的功能实际运行一次，再判断某个目录是否不需要。只做导入检查会漏掉回答问题时才加载的模块。
+- 顺着清单和配置中的路径继续查看，包括项目目录之外的路径。在确认外部路径确实被使用之前，不能把本地副本当成重复文件。
+- 不要自动跟随或删除符号链接。链接本身可能是项目使用的路径，而其目标可能属于另一份目录。
+- `__pycache__` 和 `.pyc` 可以作为缓存候选。`.venv`、已安装运行环境或第三方源码目录必须留下，除非重新安装已经测试成功并且用户接受。
+- 剩余文件扫描给出的文件名建议只是候选。启动入口会导入、启动或对外提供的文件必须保留。
+- 生成的报告和旧结果文件可以移走。项目仍在使用的正式基准题、源数据和被引用文档必须留下。
+- 同名目录可能承担不同职责。清理时不要把它们合并。
+- 目标盘是 FAT32 时，只证明复制内容一致，不能声称归档保留了权限或加密。单个文件达到或超过 4 GiB 时，必须换一个目标位置。

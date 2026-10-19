@@ -1,10 +1,10 @@
-# PlantGlyco examples
+# PlantGlyco 项目示例
 
-These notes apply only to this evidence project. They do not change the skill's required order.
+这些说明只适用于本证据项目，不改变技能规定的执行顺序。
 
-- The thin DSH server import did not reveal SQL, retrieval, web evidence, SEEL, or ledger modules. Their directories became necessary only when a real question ran.
-- The active knowledge base is `federated_candidate`: the 2026-10-06 rebuilt base plus the 2026-10-08 PDB increment. The September `store/full` indexes are archived fallback snapshots, not part of the default answer path.
-- The manifest's graph index was outside `Graph-RAG/store/full`. Removing the local full store did not make the manifest target movable.
-- `runtime` and `runtime_pdb_incremental_20261008` both contain live state or selected data. Similar names were not a reason to merge them.
-- PDF corpora, L0 data, lexicons, active indexes, SQL databases, configuration, and the startup virtual environment stayed because the running system or its recovery path used them.
-- Startup scripts remain at the paths named by their launch commands. Usage documentation points to those paths instead of becoming a second launch location.
+- DSH 服务的浅层导入看不到 SQL、检索、网页证据、SEEL 和记录模块。只有实际回答问题后，才能确认这些目录是运行所需要的。
+- 当前知识库是 `federated_candidate`：2026-10-06 重建的基础库，加上 2026-10-08 的 PDB 增量库。9 月的 `store/full` 索引只是已归档的回退快照，不属于默认回答路径。
+- 联邦清单中的图索引位于 `Graph-RAG/store/full` 之外。删除本地 full 存储后，不能把清单实际指向的目标也移走。
+- `runtime` 和 `runtime_pdb_incremental_20261008` 都含有正在使用的状态或已选中的数据。名称相似不是合并它们的理由。
+- PDF 语料、L0 数据、领域词表、当前索引、SQL 数据库、配置和启动所用虚拟环境都保留，因为运行系统或其恢复路径会使用它们。
+- 启动脚本留在启动命令所写的原始路径。使用说明只记录这些路径，不把说明目录变成第二个启动位置。

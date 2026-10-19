@@ -1,6 +1,6 @@
-"""Write one record for every directory under a project root.
+"""为项目根目录下的每一层目录各写一条记录。
 
-This is an inventory tool. It never moves or deletes files.
+这是清单工具，不会移动或删除文件。
 """
 from __future__ import annotations
 
@@ -33,7 +33,7 @@ def main() -> None:
         "root": str(root),
         "directory_count": len(directories),
         "directories": directories,
-        "boundary": "Inventory only. Explain every row before classifying or moving anything.",
+        "boundary": "仅生成清单。分类或移动之前，必须先说明每一行目录的功能。",
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
