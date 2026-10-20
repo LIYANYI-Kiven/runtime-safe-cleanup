@@ -6,6 +6,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import stat
 from pathlib import Path
 
 
@@ -46,14 +48,23 @@ def main() -> None:
 
     files = []
     counts = {"log": 0, "cache": 0, "test": 0, "result": 0, "unclassified": 0}
-    for path in sorted(item for item in root.rglob("*") if item.is_file()):
-        selected = category(path.relative_to(root))
-        counts[selected] += 1
-        files.append({
-            "relative_path": path.relative_to(root).as_posix(),
-            "category": selected,
-            "bytes": path.stat().st_size,
-        })
+    for current, _directories, names in os.walk(root, followlinks=False):
+        parent = Path(current)
+        for name in sorted(names):
+            path = parent / name
+            try:
+                attributes = os.lstat(path).st_file_attributes
+            except (AttributeError, OSError):
+                attributes = 0
+            if path.is_symlink() or attributes & stat.FILE_ATTRIBUTE_REPARSE_POINT:
+                continue
+            selected = category(path.relative_to(root))
+            counts[selected] += 1
+            files.append({
+                "relative_path": path.relative_to(root).as_posix(),
+                "category": selected,
+                "bytes": path.stat().st_size,
+            })
 
     report = {
         "root": str(root),
